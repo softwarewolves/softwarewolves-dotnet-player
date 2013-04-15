@@ -21,9 +21,9 @@ namespace DotNetPlayer
         {     
             DotNetClient client = new DotNetClient();
         //    Console.WriteLine(client.makeChangeRoomPresenceConfirmationMessage("testroom@jabber.org","mynickname","id12345"));
-         
 
-            client.Login("jabber.org", "testvillager", "villager");
+            //awtest1.vm.bytemark.co.uk
+            client.Login("awtest1.vm.bytemark.co.uk", "testvillager", "villager");
           //  System.Threading.Thread.Sleep(8000);
             Console.ReadLine();
         }
