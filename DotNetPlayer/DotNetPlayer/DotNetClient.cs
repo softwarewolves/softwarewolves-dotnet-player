@@ -20,10 +20,11 @@ namespace DotNetPlayer
         private string password;
         private string nickname;
         private Jid chatroom;
+        private DecisionStrategy decisionStrategy;
 
         static void Main(string[] args)
         {
-            DotNetClient client = new DotNetClient("awtest1.vm.bytemark.co.uk", "testvillager", "villager", "AngryVillager");
+            DotNetClient client = new DotNetClient(null, "awtest1.vm.bytemark.co.uk", "testvillager", "villager1", "AngryVillager");
             client.StartNewGame();
             Console.ReadLine();
         }
@@ -32,12 +33,13 @@ namespace DotNetPlayer
             Console.WriteLine(error);
         }
 
-        public DotNetClient(String server, String username, String password, String nickname)
+        public DotNetClient(DecisionStrategy strat, String server, String username, String password, String nickname)
         {
             this.server = server;
             this.username = username;
             this.password = password;
             this.nickname = nickname;
+            this.decisionStrategy = strat;
         }
 
         public void StartNewGame()
@@ -51,18 +53,17 @@ namespace DotNetPlayer
               //  connection.SendMyPresence();
                 sendChatMessage("sww@"+server, "I want to play");
             };
-            
-            
+                        
         }
 
-        private void sendChatMessage(String receiverJID, String content)
+        public void sendChatMessage(String receiverJID, String content)
         {
             Message m = new Message(receiverJID, MessageType.chat, content);
             connection.Send(m);
             Console.WriteLine("Chat message sent: " + m);
         }
 
-        private void sendChatRoomMessage(String content)
+        public void sendChatRoomMessage(String content)
         {
             Message m = new Message(chatroom, MessageType.groupchat, content);
             connection.Send(m);
@@ -80,12 +81,14 @@ namespace DotNetPlayer
                 Console.WriteLine("Message interpreted as invitation");
                 chatroom = message.From;
                 MucManager manager = new MucManager(connection);
+                System.Threading.Thread.Sleep(3000);
                 manager.JoinRoom(chatroom, nickname, false);
             }
             else if(message.Body!=null && message.Body.ToString().StartsWith("Please vote who should be hanged"))
             {
                 sendChatRoomMessage("I vote for JoligeHeidi");
                 Console.WriteLine("Voted for JoligeHeidi");
+
 
             } else
             {

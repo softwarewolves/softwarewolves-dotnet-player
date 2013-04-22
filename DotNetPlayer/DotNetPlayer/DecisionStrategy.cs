@@ -8,9 +8,11 @@ namespace DotNetPlayer
 {
     class DecisionStrategy
     {
-        public string vote(string[] candidates)
+        public void OnMessageReceived(String content)
         {
-            return candidates.First();
+            
         }
+
+        private void sendMessage() { }
     }
 }
