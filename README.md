@@ -1,8 +1,6 @@
 softwarewolves-dotnet-player
 ============================
 
-# Softwarewolves-java-player
-
 
 This is an example implementation of a bot in C# for the digital version of the werewolves party game (rebranded to softwarewolves game). The bot does not do much - it implements the lazy villager story.
 
