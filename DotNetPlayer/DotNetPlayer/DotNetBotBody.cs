@@ -1,12 +1,6 @@
 ﻿using agsXMPP;
 using agsXMPP.protocol.client;
-using agsXMPP.Xml;
-using agsXMPP.Xml.Dom;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using agsXMPP.protocol.x.muc;
 
 
