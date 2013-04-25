@@ -24,7 +24,7 @@ namespace DotNetPlayer
 
         static void Main(string[] args)
         {
-            DotNetBotBody client = new DotNetBotBody("awtest1.vm.bytemark.co.uk", "testbot", "testbot", "AngryVillager");
+            DotNetBotBody client = new DotNetBotBody("jabber.org", "myjabberusername", "myjabberpassword", "mypreferrednickname");
             client.StartNewGame();
             Console.ReadLine();
         }
