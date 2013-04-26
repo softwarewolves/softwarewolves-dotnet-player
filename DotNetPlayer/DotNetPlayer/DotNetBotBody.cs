@@ -18,7 +18,8 @@ namespace DotNetPlayer
 
         static void Main(string[] args)
         {
-            DotNetBotBody client = new DotNetBotBody("pi.software.wolf", "testbot", "testbot", "VW Wolf");
+            //create a new bot with given account settings
+            DotNetBotBody client = new DotNetBotBody("servername", "username", "password", "nickname");
             client.StartNewGame();
             Console.ReadLine();
         }

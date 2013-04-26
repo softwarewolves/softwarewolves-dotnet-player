@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DotNetPlayer.DotNetBotBody</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="agsXMPP">
       <HintPath>..\..\..\..\..\..\..\Program Files\AG-Software\agsXMPP SDK\agsxmpp\bin\Net35\Release\agsXMPP.dll</HintPath>
