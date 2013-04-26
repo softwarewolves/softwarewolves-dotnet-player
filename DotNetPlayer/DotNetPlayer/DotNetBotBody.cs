@@ -18,7 +18,7 @@ namespace DotNetPlayer
 
         static void Main(string[] args)
         {
-            DotNetBotBody client = new DotNetBotBody("jabber.org", "myjabberusername", "myjabberpassword", "mypreferrednickname");
+            DotNetBotBody client = new DotNetBotBody("pi.software.wolf", "testbot", "testbot", "VW Wolf");
             client.StartNewGame();
             Console.ReadLine();
         }
