@@ -25,7 +25,6 @@ namespace DotNetPlayer
         public void OnJoiningGame(string chatroom)
         {
             Console.Out.WriteLine("Joined chatroom " + chatroom);
-
         }
 
 

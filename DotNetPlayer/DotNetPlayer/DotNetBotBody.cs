@@ -19,7 +19,7 @@ namespace DotNetPlayer
         static void Main(string[] args)
         {
             //create a new bot with given account settings
-            DotNetBotBody client = new DotNetBotBody("servername", "username", "password", "nickname");
+            DotNetBotBody client = new DotNetBotBody("server", "username", "password", "nickname");
             client.StartNewGame();
             Console.ReadLine();
         }
@@ -74,7 +74,7 @@ namespace DotNetPlayer
         }
 
         /// <summary>
-        /// Send a message in the chatroom.
+        /// Send a public message in the chatroom.
         /// </summary>
         /// <param name="content">the content of the message to be posted</param>
         public void sendChatRoomMessage(String content)
@@ -82,6 +82,18 @@ namespace DotNetPlayer
             Message m = new Message(chatroom, MessageType.groupchat, content);
             connection.Send(m);
        //     Console.WriteLine("Chatroom message sent: " + m);
+        }
+
+        /// <summary>
+        /// Send a private message to a nickname in the chatroom
+        /// </summary>
+        /// <param name="content">The content to be sent</param>
+        /// <param name="receiverNickName">the nickname of the recipient to send the message to</param>
+        public void sendPrivateChatRoomMessage(String content, String receiverNickName)
+        {
+            String destination = this.chatroom+"/"+receiverNickName;
+            Message m = new Message(destination,MessageType.chat,content);
+            connection.Send(m);
         }
 
         /// <summary>
